@@ -1,0 +1,9 @@
+/.Build
+/.ddev
+/.idea
+/public
+/var
+.php_cs.cache
+.DS_Store
+composer.lock
+Thumbs.db

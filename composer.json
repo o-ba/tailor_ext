@@ -1,0 +1,52 @@
+{
+  "name": "o-ba/tailor_ext",
+  "description": "Example extension using tailor cli tool for publishing to TER",
+  "type": "typo3-cms-extension",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "GPL-2.0-or-later",
+  "keywords": ["tailor", "ter", "TYPO3", "REST API"],
+  "require": {
+    "php": "^7.4",
+    "typo3/cms-core": "^10"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "typo3/tailor": "dev-main",
+    "typo3/testing-framework": "^6.1",
+    "typo3/coding-standards": "^0.2.0"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "tailor_ext",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare",
+      "if [ ! -e .Build/Web/vendor ]; then cd .Build/Web  && ln -s ../vendor && cd -; fi"
+    ],
+    "test:unit": [
+      "@php .Build/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml Tests/Unit/"
+    ],
+    "cs": [
+      "@php .Build/bin/php-cs-fixer fix --dry-run --diff --diff-format=udiff --config=.Build/vendor/typo3/coding-standards/templates/extension_php_cs.dist Classes/ Tests/"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "Bo\\TailorExt\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Bo\\TailorExt\\Tests\\": "Tests/"
+    }
+  }
+}
