@@ -14,6 +14,9 @@ the [TYPO3 testing framework](https://github.com/TYPO3/testing-framework)
 and for publishing tagged versions to [TER](https://extensions.typo3.org/)
 using the [tailor](https://github.com/TYPO3/tailor) cli tool.
 
+Head over to the [actions](https://github.com/o-ba/tailor_ext/actions)
+tab to get more information about the executed workflows.
+
 It also includes examples how to setup a valid `ext_emconf`
 file, how to define a `composer.json` to be used in the
 GitHub workflows and how to start a documentation.
