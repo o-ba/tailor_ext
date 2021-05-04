@@ -1,6 +1,7 @@
 /.Build
 /.ddev
 /.idea
+/.env
 /public
 /var
 .php_cs.cache
